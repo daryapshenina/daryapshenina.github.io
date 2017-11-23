@@ -253,13 +253,13 @@ function setTokenSentToServer(currentToken) {
 }
 
 function updateUIForPushEnabled(currentToken) {
-    console.log(currentToken);
+    console.log('49997874648878755tffffffffffdddtestetstets');
     console.log(currentToken);
     token.text(currentToken);
     bt_register.hide();
     bt_delete.show();
     form.show();
-    console.log(currentToken);
+
 }
 
 function resetUI() {
