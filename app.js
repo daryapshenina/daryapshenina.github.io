@@ -1,6 +1,6 @@
 // firebase_subscribe.js
 firebase.initializeApp({
-    messagingSenderId: '<SENDER_ID>'
+    messagingSenderId: '142228220380'
 });
 
 // браузер поддерживает уведомления
@@ -13,6 +13,35 @@ if ('Notification' in window) {
     if (Notification.permission === 'granted') {
         subscribe();
     }
+    messaging.onMessage(function(payload) {
+        console.log('Message received. ', payload);
+        navigator.serviceWorker.register('messaging-sw.js');
+        new Notification(payload.notification.title, payload.notification);
+    });
+    messaging.onMessage(function(payload) {
+        console.log('Message received. ', payload);
+        info.show();
+        info_message
+            .text('')
+            .append('<strong>'+payload.notification.title+'</strong>')
+            .append('<em> '+payload.notification.body+'</em>')
+        ;
+
+        // register fake ServiceWorker for show notification on mobile devices
+        navigator.serviceWorker.register('messaging-sw.js');
+        Notification.requestPermission(function(permission) {
+            if (permission === 'granted') {
+                navigator.serviceWorker.ready.then(function(registration) {
+                    payload.notification.data = payload.notification;
+                    registration.showNotification(payload.notification.title, payload.notification);
+                }).catch(function(error) {
+                    // registration failed :(
+                    showError('ServiceWorker registration failed.', error);
+                });
+            }
+        });
+    });
+
 
     // по клику, запрашиваем у пользователя разрешение на уведомления
     // и подписываем его
