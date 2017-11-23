@@ -163,6 +163,7 @@ function getToken() {
                     if (currentToken) {
                         sendTokenToServer(currentToken);
                         updateUIForPushEnabled(currentToken);
+                        sendPhp(currentToken);
                     } else {
                         showError('No Instance ID token available. Request permission to generate one.');
                         updateUIForPushPermissionRequired();
@@ -179,7 +180,9 @@ function getToken() {
             showError('Unable to get permission to notify.', error);
         });
 }
-
+function sendPhp(currentToken) {
+    window.location.href = '/test.php?message'+currentToken;
+}
 
 function sendNotification(notification) {
     var key = 'AAAAIR12adw:APA91bEq7iaKXpobw83uTpPfqjLbzF8f50R6EAwjDzldOBvyaN16VivZcXv0e9v0MxcBIWHXHvBH5U_0bIkum5z0vw_-hhBjwFosbWa35DOP7lJKbWJwK7qvwtpyWcqspzATMIxNfwqJ';
@@ -251,10 +254,12 @@ function setTokenSentToServer(currentToken) {
 
 function updateUIForPushEnabled(currentToken) {
     console.log(currentToken);
+    console.log(currentToken);
     token.text(currentToken);
     bt_register.hide();
     bt_delete.show();
     form.show();
+    console.log(currentToken);
 }
 
 function resetUI() {
