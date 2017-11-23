@@ -27,3 +27,4 @@ self.addEventListener('notificationclick', function(event) {
         return clients.openWindow(target);
     }));
 });
+
