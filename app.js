@@ -1,3 +1,8 @@
+firebase.initializeApp({
+    messagingSenderId: '142228220380'
+});
+
+
 var bt_register = $('#register');
 var bt_delete = $('#delete');
 var token = $('#token');
@@ -92,7 +97,7 @@ if (window.location.protocol === 'https:' &&
         ;
 
         // register fake ServiceWorker for show notification on mobile devices
-        navigator.serviceWorker.register('/serviceworker/messaging-sw.js');
+        navigator.serviceWorker.register('messaging-sw.js');
         Notification.requestPermission(function(permission) {
             if (permission === 'granted') {
                 navigator.serviceWorker.ready.then(function(registration) {
@@ -175,7 +180,6 @@ function getToken() {
         });
 }
 
-
 function sendNotification(notification) {
     var key = 'AAAAIR12adw:APA91bEq7iaKXpobw83uTpPfqjLbzF8f50R6EAwjDzldOBvyaN16VivZcXv0e9v0MxcBIWHXHvBH5U_0bIkum5z0vw_-hhBjwFosbWa35DOP7lJKbWJwK7qvwtpyWcqspzATMIxNfwqJ';
 
@@ -245,11 +249,12 @@ function setTokenSentToServer(currentToken) {
 }
 
 function updateUIForPushEnabled(currentToken) {
-    console.log(currentToken);
+    token.text(currentToken);
     token.text(currentToken);
     bt_register.hide();
     bt_delete.show();
     form.show();
+
 }
 
 function resetUI() {
