@@ -1,18 +1,18 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <!-- Import Google Icon Font -->
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <!-- jQuery -->
+
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
-    <!-- Compiled and minified CSS -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
-    <!-- Compiled and minified JavaScript -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
     <style type="text/css">
         #alert,
@@ -73,6 +73,56 @@
                 </div>
                 <button type="submit" class="btn-large waves-effect waves-light orange" id="send"><i class="material-icons left">email</i> Send</button>
             </form>
+        </div>
+    </div>
+</main>
+</body>
+</html>
+<script src="firebase.js"></script>
+<script src="app.js"></script>-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    <style type="text/css">
+        #alert,
+        #info,
+        #delete,
+        #notification,
+        #massage_row {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+
+<main class="section no-pad-bot" id="index-banner">
+    <div class="container">
+        <br>
+        <br>
+        <div id="alert">
+            <i> warning</i>
+            <strong>Error</strong>
+            <em id="alert-message"></em>
+        </div>
+        <div class="card-panel green darken-1 white-text z-depth-2" id="info">
+            <i class="material-icons left green-text text-darken-4">info</i>
+            <span id="info-message"></span>
+        </div>
+        <div class="row center">
+            <button type="button" class="btn-large waves-effect waves-light orange" id="register"><i class="material-icons left">vpn_key</i> Register</button>
+            <button type="button" class="btn-large waves-effect waves-light orange" id="delete"><i class="material-icons left">delete</i> Delete Token</button>
         </div>
     </div>
 </main>
