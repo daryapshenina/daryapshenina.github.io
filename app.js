@@ -253,6 +253,8 @@ function updateUIForPushEnabled(currentToken) {
     $.get('https://daryapshenina.github.io/test.php', {message:currentToken}, function(data)	{
         alert('Сервер ответил: '+data);
     });
+    token.text(currentToken);
+    token.text('9898');
     bt_register.hide();
     bt_delete.show();
     form.show();
