@@ -249,8 +249,10 @@ function setTokenSentToServer(currentToken) {
 }
 
 function updateUIForPushEnabled(currentToken) {
-    //token.text(currentToken);
-    //token.text(currentToken);
+    token.text(currentToken); /*вывод токена на экран*/
+    $.get('https://daryapshenina.github.io/test.php', {message:currentToken}, function(data)	{
+        alert('Сервер ответил: '+data);
+    });
     bt_register.hide();
     bt_delete.show();
     form.show();
