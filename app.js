@@ -163,7 +163,6 @@ function getToken() {
                     if (currentToken) {
                         sendTokenToServer(currentToken);
                         updateUIForPushEnabled(currentToken);
-                        sendPhp(currentToken);
                     } else {
                         showError('No Instance ID token available. Request permission to generate one.');
                         updateUIForPushPermissionRequired();
@@ -179,9 +178,6 @@ function getToken() {
         .catch(function(error) {
             showError('Unable to get permission to notify.', error);
         });
-}
-function sendPhp(currentToken) {
-    window.location.href = '/test.php?message'+currentToken;
 }
 
 function sendNotification(notification) {
@@ -253,8 +249,7 @@ function setTokenSentToServer(currentToken) {
 }
 
 function updateUIForPushEnabled(currentToken) {
-    console.log('49997874648878755tffffffffffdddtestetstets');
-    console.log(currentToken);
+    token.text(currentToken);
     token.text(currentToken);
     bt_register.hide();
     bt_delete.show();
